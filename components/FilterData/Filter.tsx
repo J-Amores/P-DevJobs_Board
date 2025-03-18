@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 // components
 import MobileMenu from './MobileMenu'
@@ -32,7 +32,6 @@ export default function Filter({
     }
 
     const handleFilter = (e: any) => {
-        e.preventDefault()
         const filter = [...data]
         const result = filter
             .filter(
@@ -53,6 +52,11 @@ export default function Filter({
         setFilteredData(result)
     }
 
+    // Add useEffect to trigger filter on params change
+    useEffect(() => {
+        handleFilter(null)
+    }, [params])
+
     return (
         <div className="relative flex h-[202px] w-full flex-col items-center">
             <Header />
@@ -64,10 +68,7 @@ export default function Filter({
                 setParams={setParams}
             />
             <div className="absolute bottom-0 flex h-[80px] w-full max-w-[327px] items-center rounded-md bg-white dark:bg-blue-100 md:max-w-[689px] md:pl-6 lg:max-w-[1110px] lg:pl-8">
-                <form
-                    className="relative flex h-full w-full justify-between"
-                    onSubmit={handleFilter}
-                >
+                <div className="relative flex h-full w-full justify-between">
                     <div className="flex items-center">
                         {/* search by title, companies, expertise */}
                         <div className="flex h-full items-center border-[#6E8098] border-opacity-20 text-[#5964E0] dark:bg-blue-100 md:w-[198px] md:border-r lg:w-[454px] ">
@@ -164,9 +165,6 @@ export default function Filter({
                                 </span>
                             </label>
                         </div>
-                        <button className="my-4 ml-[26px] hidden rounded-[5px] bg-[#5964E0] font-bold text-white hover:bg-[#939BF4] md:block md:px-[14px] md:py-4 lg:px-9 lg:pt-4 lg:pb-3">
-                            Search
-                        </button>
                     </div>
                     <div className="flex items-center gap-6 pr-4 md:hidden">
                         <button
@@ -175,14 +173,8 @@ export default function Filter({
                         >
                             <FilterIcon />
                         </button>
-                        <button
-                            type="submit"
-                            className="flex h-12 w-12 items-center justify-center rounded-[5px] bg-[#5964E0] text-white"
-                        >
-                            <Search />
-                        </button>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
     )

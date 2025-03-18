@@ -19,13 +19,7 @@ export default function MobileMenu({
             {mobileMenu && (
                 <div className="absolute top-0 z-20 flex h-screen w-full items-center justify-center bg-[#000000]/40">
                     <div className="h-[217px] w-[327px] rounded-md bg-white dark:bg-blue-100">
-                        <form
-                            className="flex w-full flex-col"
-                            onSubmit={(e) => {
-                                handleFilter(e)
-                                setMobileMenu(false)
-                            }}
-                        >
+                        <div className="flex w-full flex-col">
                             <div className="flex h-[72px] w-full items-center border-b border-[#6E8098] border-opacity-20 py-6 pl-6">
                                 <Location />
                                 <input
@@ -74,12 +68,12 @@ export default function MobileMenu({
                                 </div>
                             </div>
                             <button
-                                type="submit"
+                                onClick={() => setMobileMenu(false)}
                                 className="mx-6 rounded-[5px] bg-[#5964E0] pb-3 pt-4 font-bold text-white hover:bg-[#939BF4] md:block md:px-[14px] lg:px-9 lg:pt-4 lg:pb-3"
                             >
-                                Search
+                                Close
                             </button>
-                        </form>
+                        </div>
                     </div>
                 </div>
             )}
