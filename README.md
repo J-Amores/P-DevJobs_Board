@@ -28,10 +28,10 @@ Users should be able to:
 ## Screenshot
 
 #### Home Page
-![Home Page](../screenshots/HomePage.png)
+![Home Page](./screenshots/HomePage.png)
 
 #### Job Page
-![Job Page](../screenshots/JobPage.png)
+![Job Page](./screenshots/JobPage.png)
 
 
 ### Links
