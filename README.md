@@ -100,4 +100,4 @@ export default function RootLayout({
 ## Author
 
 -   [LinkedIn] (https://www.linkedin.com/in/john-amores/)
--   [Frontend Mentor](https://www.frontendmentor.io/profile/jamores07)
+-   [Frontend Mentor](https://www.frontendmentor.io/profile/jamores07)# Test update
